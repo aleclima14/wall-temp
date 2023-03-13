@@ -15,14 +15,20 @@
 /* INCLUDES */
 #include <Arduino.h>
 
-/* SENSORS */
-#define READ_DHT22  
-#define ENABLE_DHT22
-#define READ_DS18B20
-#define ENABLE_DS18B20
+#define MINUTES_TO_SLEEP   2
 
-/* PERIPHERALS */
-#define READ_BUTTON
-#define ENABLE_LED 
+/* SENSORS PINS */
+#define READ_DHT22         25
+#define ENABLE_DHT22       26
+
+#define READ_DS18B20       33
+#define ENABLE_DS18B20     32
+
+/* PERIPHERALS PINS */
+#define READ_BUTTON        12
+#define ENABLE_LED         22
+
+/* DHT CONFIG */
+#define DHT_TYPE DHT22
 
 #endif // end __configuration_h__

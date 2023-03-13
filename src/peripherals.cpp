@@ -11,13 +11,81 @@
 
 /* INCLUDES */
 #include "peripherals.h"
+#include <DHT.h>
 
+
+/**
+ * @brief DHT Constructor
+ * 
+ * @return DHT 
+ */
+DHT dht(READ_DHT22, DHT_TYPE);   
+
+/**
+ * @brief Init output and input pins
+ * 
+ */
 void fnvInitPins(void)
 {
-   pinMode(LED_BUILTIN, OUTPUT);
+   pinMode(ENABLE_LED, OUTPUT);
+   pinMode(ENABLE_DHT22, OUTPUT);
+   pinMode(ENABLE_DS18B20, OUTPUT);
+
+   pinMode(READ_DS18B20, INPUT);
+   pinMode(READ_BUTTON, INPUT_PULLUP);
 }
 
+/**
+ * @brief Set pin status
+ * 
+ * @param status 
+ */
 void fnvStatusLed(boolean status)
 {
-   digitalWrite(LED_BUILTIN, !status);
+   digitalWrite(ENABLE_LED, !status);
+}
+
+void fnvStartDHT22(void)
+{
+   dht.begin();
+}
+
+/**
+ * @brief Enable DHT22 sensor
+ * 
+ * @param status 
+ */
+void fnvEnableDHT22(boolean status)
+{
+   digitalWrite(ENABLE_DHT22, status);
+}
+
+/**
+ * @brief Enable Dallas sensor
+ * 
+ * @param status 
+ */
+void fnvEnableDallas(boolean status)
+{
+   digitalWrite(ENABLE_DS18B20, status);
+}
+
+/**
+ * @brief Read Ambient Temperature
+ * 
+ * @return Temperature 
+ */
+float fnfReadTemperatureDHT22(void)
+{
+   return dht.readTemperature();
+}
+
+/**
+ * @brief Read Ambient Humidity
+ * 
+ * @return Temperature 
+ */
+float fnfReadHumidityDHT22(void)
+{
+   return dht.readHumidity();
 }
