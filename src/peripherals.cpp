@@ -13,13 +13,12 @@
 #include "peripherals.h"
 #include <DHT.h>
 
-
 /**
  * @brief DHT Constructor
  * 
  * @return DHT 
  */
-DHT dht(READ_DHT22, DHT_TYPE);   
+DHT dht(PIN_READ_DHT, DHT_TYPE);   
 
 /**
  * @brief Init output and input pins
@@ -27,12 +26,12 @@ DHT dht(READ_DHT22, DHT_TYPE);
  */
 void fnvInitPins(void)
 {
-   pinMode(ENABLE_LED, OUTPUT);
-   pinMode(ENABLE_DHT22, OUTPUT);
-   pinMode(ENABLE_DS18B20, OUTPUT);
+   pinMode(PIN_LED_STATUS, OUTPUT);
+   pinMode(PIN_ENABLE_DHT, OUTPUT);
+   pinMode(PIN_ENABLE_DALLAS, OUTPUT);
 
-   pinMode(READ_DS18B20, INPUT);
-   pinMode(READ_BUTTON, INPUT_PULLUP);
+   pinMode(PIN_READ_DALLAS, INPUT);
+   pinMode(PIN_BUTTON, INPUT_PULLUP);
 }
 
 /**
@@ -42,7 +41,7 @@ void fnvInitPins(void)
  */
 void fnvStatusLed(boolean status)
 {
-   digitalWrite(ENABLE_LED, !status);
+   digitalWrite(PIN_LED_STATUS, !status);
 }
 
 void fnvStartDHT22(void)
@@ -57,7 +56,7 @@ void fnvStartDHT22(void)
  */
 void fnvEnableDHT22(boolean status)
 {
-   digitalWrite(ENABLE_DHT22, status);
+   digitalWrite(PIN_ENABLE_DHT, status);
 }
 
 /**
@@ -67,7 +66,7 @@ void fnvEnableDHT22(boolean status)
  */
 void fnvEnableDallas(boolean status)
 {
-   digitalWrite(ENABLE_DS18B20, status);
+   digitalWrite(PIN_ENABLE_DALLAS, status);
 }
 
 /**
