@@ -15,18 +15,18 @@
 /* INCLUDES */
 #include <Arduino.h>
 
-#define MINUTES_TO_SLEEP   2
+#define MINUTES_TO_SLEEP   1
 
 /* SENSORS PINS */
-#define READ_DHT22         25
-#define ENABLE_DHT22       26
+#define PIN_READ_DHT         GPIO_NUM_25
+#define PIN_ENABLE_DHT       GPIO_NUM_26
 
-#define READ_DS18B20       33
-#define ENABLE_DS18B20     32
+#define PIN_READ_DALLAS      GPIO_NUM_33
+#define PIN_ENABLE_DALLAS    GPIO_NUM_32
 
 /* PERIPHERALS PINS */
-#define READ_BUTTON        12
-#define ENABLE_LED         22
+#define PIN_BUTTON           GPIO_NUM_12
+#define PIN_LED_STATUS       GPIO_NUM_22
 
 /* DHT CONFIG */
 #define DHT_TYPE DHT22
