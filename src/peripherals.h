@@ -25,10 +25,8 @@ void fnvStatusLed(boolean status);
 void fnvStartDHT22(void);
 void fnvEnableDHT22(boolean status);
 void fnvEnableDallas(boolean status);
-boolean fnbReadButton(void);
 float fnfReadTemperatureDHT22(void);
 float fnfReadHumidityDHT22(void);
 float fnfReadTemperatureDallas(void);
-
 
 #endif // end __peripherals_h__

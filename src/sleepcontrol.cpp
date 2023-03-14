@@ -15,6 +15,7 @@
 void fnvGoToSleep(EnSleepMode sleepType, uint16_t sleepTime)
 {
    esp_sleep_enable_timer_wakeup((uint64_t)sleepTime * SLEEP_TIMER);
+   esp_sleep_enable_ext0_wakeup(PIN_BUTTON, LOW);
 
    switch (sleepType)
    {
