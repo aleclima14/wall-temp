@@ -16,6 +16,7 @@
 #include "configuration.h"
 
 /* DEFINES */
+#define DHT_TYPE DHT22
 
 /* ENUMS */
 
