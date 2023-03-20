@@ -16,11 +16,13 @@
 
 float temperature;
 float humidity;
+float dallasTemp;
 
 void setup() 
 {
   fnvInitPins();
   fnvStartDHT22();
+  fnvStartDallas();
   fnvStatusLed(false);
   Serial.begin(9600);
 }
@@ -28,6 +30,7 @@ void setup()
 void loop() 
 {
   fnvEnableDHT22(true);
+  fnvEnableDallas(true);
   fnvStatusLed(true);
   Serial.println("");
   Serial.println("Init board");
@@ -36,6 +39,7 @@ void loop()
   {
     temperature = fnfReadTemperatureDHT22();
     humidity = fnfReadHumidityDHT22();
+    dallasTemp = fnfReadTemperatureDallas();
     delay(1000);
     Serial.print(".");
   }
@@ -44,9 +48,12 @@ void loop()
   Serial.print("Temp: ");
   Serial.print(temperature, 1);
   Serial.print(" Humid: ");
-  Serial.println(humidity, 0);
+  Serial.print(humidity, 0);
+  Serial.print(" Dallas: ");
+  Serial.println(dallasTemp, 1);
 
   fnvEnableDHT22(false);
+  fnvEnableDallas(false);
   delay(100);
   Serial.println("Go to sleep zzZZ");
   fnvGoToSleep(DEEP_SLEEP, MINUTES_TO_SLEEP);
