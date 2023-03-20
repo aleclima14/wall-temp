@@ -20,42 +20,56 @@ float dallasTemp;
 
 void setup() 
 {
-  fnvInitPins();
-  fnvStartDHT22();
-  fnvStartDallas();
-  fnvStatusLed(false);
-  Serial.begin(9600);
+   fnvInitPins();
+   fnvStartDHT22();
+   fnvStartDallas();
+   fnvStatusLed(false);
+   fnvEnableDHT22(true);
+   fnvEnableDallas(true);
+   Serial.begin(9600);
 }
 
 void loop() 
 {
-  fnvEnableDHT22(true);
-  fnvEnableDallas(true);
-  fnvStatusLed(true);
-  Serial.println("");
-  Serial.println("Init board");
+  // fnvEnableDHT22(true);
+  // fnvEnableDallas(true);
+  // fnvStatusLed(true);
+  // Serial.println("");
+  // Serial.println("Init board");
 
-  for(int i = 0; i < 3; i++)
-  {
-    temperature = fnfReadTemperatureDHT22();
-    humidity = fnfReadHumidityDHT22();
-    dallasTemp = fnfReadTemperatureDallas();
-    delay(1000);
-    Serial.print(".");
-  }
+  // for(int i = 0; i < 3; i++)
+  // {
+  //   temperature = fnfReadTemperatureDHT22();
+  //   humidity = fnfReadHumidityDHT22();
+  //   dallasTemp = fnfReadTemperatureDallas();
+  //   delay(1000);
+  //   Serial.print(".");
+  // }
 
-  Serial.println("");
-  Serial.print("Temp: ");
-  Serial.print(temperature, 1);
-  Serial.print(" Humid: ");
-  Serial.print(humidity, 0);
-  Serial.print(" Dallas: ");
-  Serial.println(dallasTemp, 1);
+  // Serial.println("");
+  // Serial.print("Temp: ");
+  // Serial.print(temperature, 1);
+  // Serial.print(" Humid: ");
+  // Serial.print(humidity, 0);
+  // Serial.print(" Dallas: ");
+  // Serial.println(dallasTemp, 1);
 
-  fnvEnableDHT22(false);
-  fnvEnableDallas(false);
-  delay(100);
-  Serial.println("Go to sleep zzZZ");
-  fnvGoToSleep(DEEP_SLEEP, MINUTES_TO_SLEEP);
+  // fnvEnableDHT22(false);
+  // fnvEnableDallas(false);
+  // delay(100);
+  // Serial.println("Go to sleep zzZZ");
+  // fnvGoToSleep(DEEP_SLEEP, MINUTES_TO_SLEEP);
+
+   temperature = fnfReadTemperatureDHT22();
+   humidity = fnfReadHumidityDHT22();
+   dallasTemp = fnfReadTemperatureDallas();
+
+   Serial.print("Temp: ");
+   Serial.print(temperature, 1);
+   Serial.print(" Humid: ");
+   Serial.print(humidity, 0);
+   Serial.print(" Dallas: ");
+   Serial.println(dallasTemp, 1);
+   delay(1000);
 }
 

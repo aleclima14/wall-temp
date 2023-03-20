@@ -119,6 +119,6 @@ float fnfReadHumidityDHT22(void)
 float fnfReadTemperatureDallas(void)
 {
    Dallas.requestTemperatures(); 
-   return Dallas.getTempCByIndex(0);;
+   return Dallas.getTempCByIndex(0);
 }
 
