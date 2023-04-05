@@ -12,7 +12,7 @@
 /* INCLUDES */
 #include <Arduino.h>
 #include "sleepcontrol.h"
-#include "peripherals.h"
+#include "temperature_app.h"
 
 float temperature;
 float humidity;
@@ -20,9 +20,7 @@ float dallasTemp;
 
 void setup() 
 {
-  fnvInitPins();
-  fnvStartDHT22();
-  fnvStartDallas();
+  fnvStartPeripherals();
   fnvStatusLed(false);
   Serial.begin(9600);
 }

@@ -15,20 +15,10 @@
 /* INCLUDES */
 #include "configuration.h"
 
-/* DEFINES */
-#define DHT_TYPE DHT22
-
-/* ENUMS */
-
 /* FUNCTIONS */
 void fnvInitPins(void);
 void fnvStatusLed(boolean status);
-void fnvStartDHT22(void);
-void fnvStartDallas(void);
 void fnvEnableDHT22(boolean status);
 void fnvEnableDallas(boolean status);
-float fnfReadTemperatureDHT22(void);
-float fnfReadHumidityDHT22(void);
-float fnfReadTemperatureDallas(void);
 
 #endif // end __peripherals_h__
