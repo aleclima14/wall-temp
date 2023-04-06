@@ -79,7 +79,7 @@ void fnvBlinkLedStatus(int blinkTimes, int blinkInterval)
  */
 void fnvSmoothLedOut(void)
 {
-   for(int i = 0; i < 250; i++)
+   for(int i = 0; i < 256; i++)
    {
       analogWrite(PIN_LED_STATUS, i);
       delay(4);
