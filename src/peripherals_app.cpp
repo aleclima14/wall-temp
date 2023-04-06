@@ -1,5 +1,5 @@
 /**
- * @file temperature_app.cpp
+ * @file peripherals_app.cpp
  * @author Alecsander Lima (aleclima14@gmail.com)
  * @brief 
  * @version 0.1
@@ -10,7 +10,7 @@
  */
 
 /* INCLUDES */
-#include "temperature_app.h"
+#include "peripherals_app.h"
 
 /**
  * @brief Start all peripherals

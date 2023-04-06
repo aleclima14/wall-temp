@@ -1,5 +1,5 @@
 /**
- * @file temperature_app.h
+ * @file peripherals_app.h
  * @author Alecsander Lima (aleclima14@gmail.com)
  * @brief 
  * @version 0.1
@@ -9,8 +9,8 @@
  * 
  */
 
-#ifndef __temperature_app_h__
-#define __temperature_app_h__
+#ifndef __peripherals_app_h__
+#define __peripherals_app_h__
 
 /* INCLUDES */
 #include "configuration.h"
@@ -28,4 +28,4 @@ typedef struct
 /* FUNCTIONS */
 void fnvStartPeripherals (void);
 
-#endif // end __temperature_app_h__
+#endif // end __peripherals_app_h__

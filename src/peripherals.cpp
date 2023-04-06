@@ -53,3 +53,35 @@ void fnvEnableDallas(boolean status)
 {
    digitalWrite(PIN_ENABLE_DALLAS, status);
 }
+
+/**
+ * @brief Blinks the led according to the number of times and defined interval
+ * 
+ * @param blinkTimes 
+ * @param blinkInterval 
+ */
+void fnvBlinkLedStatus(int blinkTimes, int blinkInterval)
+{
+   int blinkCont = 0;
+   static long timerToBlink = 0;
+   for(int i = 0; i < blinkTimes; i++)
+   {
+      fnvStatusLed(true);
+      delay(blinkInterval);
+      fnvStatusLed(false);
+      delay(blinkInterval);
+   }
+}
+
+/**
+ * @brief Turn off the led gradually
+ * 
+ */
+void fnvSmoothLedOut(void)
+{
+   for(int i = 0; i < 250; i++)
+   {
+      analogWrite(PIN_LED_STATUS, i);
+      delay(4);
+   }
+}
