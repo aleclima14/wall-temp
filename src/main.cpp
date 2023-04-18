@@ -15,29 +15,31 @@
 #include "peripherals_app.h"
 #include "mqtt_server.h"
 
-int count = 0;
+unsigned long timerToSleep = 0;
 
 void setup() 
 {
    fnvStartPeripherals();
+   fnvEnableDHT22(true);
+   fnvEnableDallas(true);
+   fnvStatusLed(false);
 }
 
 void onConnectionEstablished()
-{}
+{
+   fnvPublishJSONVariables();
+   fnvSendingMQTTServer();
+   fnvBlinkLedStatus(2, 200);
+}
 
 void loop() 
 {
-   fnvEnableDHT22(true);
-   fnvEnableDallas(true);
-
-   fnvPublishJSONVariables();
-   fnvSendingMQTTServer();
    fnvClientLoop();
-   count++;
-   
-   delay(100);
-   
-   if(count > 5)
-   fnvGoToSleep(DEEP_SLEEP, MINUTES_TO_SLEEP);
+
+   if((millis() - timerToSleep) > 10000)
+   {
+      timerToSleep = millis();
+      fnvGoToSleep(DEEP_SLEEP, MINUTES_TO_SLEEP);
+   }
 }
 

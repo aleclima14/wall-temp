@@ -26,7 +26,7 @@ EspMQTTClient client
   "password ",                                //Wifi password
   "mqtt.tago.io",                             //MQTT Broker Server
   "Default",                                  //Username
-  "68468d77-4172-4355-ab59-6babda54162c",     //Device Token 
+  "4da5554a-77a0-4cd6-aba2-b3dcdf061102",     //Device Token 
   "Wall Temperature Logger",                  //Client name 
   1883                                        //The MQTT port, default to 1883. this line can be omitted
 );
@@ -40,11 +40,8 @@ void fnvSendingMQTTServer (void)
 {
   /*Sending data to MQTT server*/
   client.publish  ("info/temperatureSurface", temperatureSurface);
-  delay(20);
   client.publish  ("info/temperatureAmbient", temperatureAmbient);
-  delay(20);
   client.publish  ("info/humidityAmbient", humidityAmbient);
-  delay(20);
 }
 
 void fnvPublishJSONVariables (void)

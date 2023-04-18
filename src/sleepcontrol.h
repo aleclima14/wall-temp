@@ -18,7 +18,7 @@
 /* DEFINES */
 #define US_TO_SECONDS 1000000ULL
 #define SLEEP_TIMER  US_TO_SECONDS * 60  //1 minute in us
-#define MINUTES_TO_SLEEP   2
+#define MINUTES_TO_SLEEP   10
 
 /* ENUMS */
 typedef enum

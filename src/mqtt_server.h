@@ -22,6 +22,4 @@ void fnvPublishJSONVariables (void);
 void onConnectionEstablished();
 void fnvClientLoop(void);
 
-
-
 #endif // end __mqtt_server_h__
