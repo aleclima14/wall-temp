@@ -15,6 +15,11 @@
 /* INCLUDES */
 #include <Arduino.h>
 
+#define SOFTWARE_RELEASE   0.01
+#define YEAR_RELEASE       23
+#define MOUTH_RELEASE      04
+#define DAY_RELEASE        17
+
 /* SENSORS PINS */
 #define PIN_READ_DHT         GPIO_NUM_25
 #define PIN_ENABLE_DHT       GPIO_NUM_26
