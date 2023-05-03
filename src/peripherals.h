@@ -22,5 +22,6 @@ void fnvEnableDHT22(boolean status);
 void fnvEnableDallas(boolean status);
 void fnvSmoothLedOut(void);
 void fnvBlinkLedStatus(int blinkTimes, int blinkInterval);
+float fnvBatteryMeasure (void);
 
 #endif // end __peripherals_h__

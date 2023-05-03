@@ -22,6 +22,7 @@ void fnvInitPins(void)
    pinMode(PIN_ENABLE_DHT, OUTPUT);
    pinMode(PIN_ENABLE_DALLAS, OUTPUT);
    pinMode(PIN_BUTTON, INPUT_PULLUP);
+   pinMode(PIN_BATTERY_MEASURE, INPUT);
 }
 
 /**
@@ -84,4 +85,19 @@ void fnvSmoothLedOut(void)
       analogWrite(PIN_LED_STATUS, i);
       delay(4);
    }
+}
+
+/**
+ * @brief Symmetrical voltage divider to measure battery voltage 
+ * 
+ * @return Battery Voltage (float) 
+ */
+float fnvBatteryMeasure (void)
+{
+     /*Read pin and convert to voltage value*/
+    uint16_t batteryValue = analogRead (PIN_BATTERY_MEASURE);
+    float batteryVoltage = (batteryValue * VCC / 4095) + BATTERY_OFFSET_CORRECTION;
+
+    /*returns value multiplied by 2*/
+    return batteryVoltage * 2;
 }

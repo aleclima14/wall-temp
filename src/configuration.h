@@ -29,5 +29,9 @@
 /* PERIPHERALS PINS */
 #define PIN_BUTTON           GPIO_NUM_12
 #define PIN_LED_STATUS       GPIO_NUM_22
+#define PIN_BATTERY_MEASURE  GPIO_NUM_34
+
+#define BATTERY_OFFSET_CORRECTION 0.095
+#define VCC 3.3
 
 #endif // end __configuration_h__
